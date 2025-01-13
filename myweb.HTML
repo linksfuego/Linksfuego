@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linksfuego</title>
+    <style>
+        /* Basic Styles */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #ff007f, #ff6600, #ffcc00, #33cc33, #3366ff);
+            background-size: 400% 400%;
+            animation: gradientAnimation 10s ease infinite;
+            color: #fff;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        /* Smooth Gradient Animation */
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .container {
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+            width: 90%;
+            max-width: 500px;
+        }
+
+        .timer {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .link-button {
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            background-color: #3366ff;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            display: inline-block;
+            margin-top: 20px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .link-button.show {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .copyright {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Linksfuego</h1>
+        <p>Get amazing rewards! Check out the link below:</p>
+        <div class="timer" id="timer">35s</div>
+        <a href="https://t.me/+rQgHYQY0CEo5YWZl" target="_blank" id="linkBtn" class="link-button">
+            LINK
+        </a>
+        <div class="copyright">© 2025 LinksFuego. All rights reserved.</div>
+    </div>
+
+    <script>
+        let timerElement = document.getElementById("timer");
+        let linkButton = document.getElementById("linkBtn");
+        let timeRemaining = 35;
+
+        function startTimer() {
+            let interval = setInterval(function() {
+                timeRemaining--;
+                timerElement.innerHTML = timeRemaining + "s";
+                if (timeRemaining <= 0) {
+                    clearInterval(interval);
+                    timerElement.style.display = 'none'; // Hide timer
+                    linkButton.classList.add("show"); // Show the link button
+                }
+            }, 1000);
+        }
+
+        // Start the timer when the page loads
+        window.onload = function() {
+            startTimer();
+        }
+    </script>
+</body>
+</html>
